@@ -24,13 +24,11 @@ const postCat = (req, res) => {
 };
 
 const putCat = (req, res) => {
-  res.json({ message: "Cat updated" });
-  res.sendStatus(200);
+  res.json({ message: "Cat item updated" });
 };
 
 const deleteCat = (req, res) => {
-  res.json({ message: "Cat deleted" });
-  res.sendStatus(200);
+  res.json({ message: "Cat item deleted" });
 };
 
 export { getCat, getCatById, postCat, putCat, deleteCat };

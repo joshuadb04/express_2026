@@ -2,7 +2,7 @@
 GET http://127.0.0.1:3000/api/v1/cats
 
 ### Get cat by ID
-GET http://127.0.0.1:3000/api/v1/cats/9593
+GET http://127.0.0.1:3000/api/v1/cats/9592
 
 ### Add cat
 POST http://127.0.0.1:3000/api/v1/cats
@@ -21,3 +21,27 @@ PUT http://127.0.0.1:3000/api/v1/cats/9592
 
 ### Delete cat
 DELETE  http://127.0.0.1:3000/api/v1/cats/9590
+
+### Get all users
+GET http://127.0.0.1:3000/api/v1/users
+
+### Get user by ID
+GET http://127.0.0.1:3000/api/v1/users/3600
+
+### Add user
+POST http://127.0.0.1:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "name": "John Pork",
+  "username": "johnpork",
+  "email": "jp@metropolia.fi",
+  "role": "staff",
+  "password": "passingtheword"
+}
+
+### Update user
+PUT http://127.0.0.1:3000/api/v1/users/9592
+
+### Delete user
+DELETE  http://127.0.0.1:3000/api/v1/users/9590
