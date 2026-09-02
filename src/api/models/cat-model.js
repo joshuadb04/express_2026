@@ -28,12 +28,14 @@ const findCatById = (id) => {
 const addCat = (cat) => {
   const { cat_name, weight, owner, filename, birthdate } = cat;
   const newId = catItems[0].cat_id + 1;
+  const file = cat.filename;
+
   catItems.unshift({
     cat_id: newId,
     cat_name,
     weight,
     owner,
-    filename,
+    filename: file,
     birthdate,
   });
   return { cat_id: newId };
