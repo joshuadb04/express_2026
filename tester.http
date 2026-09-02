@@ -4,7 +4,7 @@ GET http://127.0.0.1:3000/api/v1/cats
 ### Get cat by ID
 GET http://127.0.0.1:3000/api/v1/cats/9592
 
-### Add cat
+### Add cat //this no longer works in newer API changes
 POST http://127.0.0.1:3000/api/v1/cats
 Content-Type: application/json
 
