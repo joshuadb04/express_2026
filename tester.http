@@ -2,7 +2,10 @@
 GET http://127.0.0.1:3000/api/v1/cats
 
 ### Get cat by ID
-GET http://127.0.0.1:3000/api/v1/cats/9592
+GET http://127.0.0.1:3000/api/v1/cats/41
+
+### Get cats by user ID
+GET http://127.0.0.1:3000/api/v1/cats/user/37
 
 ### Add cat //this no longer works in newer API changes
 POST http://127.0.0.1:3000/api/v1/cats
@@ -26,7 +29,7 @@ DELETE  http://127.0.0.1:3000/api/v1/cats/9590
 GET http://127.0.0.1:3000/api/v1/users
 
 ### Get user by ID
-GET http://127.0.0.1:3000/api/v1/users/3600
+GET http://127.0.0.1:3000/api/v1/users/1
 
 ### Add user
 POST http://127.0.0.1:3000/api/v1/users
@@ -41,7 +44,7 @@ Content-Type: application/json
 }
 
 ### Update user
-PUT http://127.0.0.1:3000/api/v1/users/9592
+PUT http://127.0.0.1:3000/api/v1/users/38
 
 ### Delete user
-DELETE  http://127.0.0.1:3000/api/v1/users/9590
+DELETE  http://127.0.0.1:3000/api/v1/users/38
