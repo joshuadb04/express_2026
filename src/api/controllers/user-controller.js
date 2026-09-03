@@ -1,4 +1,4 @@
-import { addUser, findUserById, listAllUsers } from "../models/user-model.js";
+import { addUser, findUserById, listAllUsers, modifyUser, removeUser } from "../models/user-model.js";
 
 const getUser = async (req, res) => {
   const users = await listAllUsers();
@@ -24,12 +24,22 @@ const postUser = async (req, res) => {
   }
 };
 
-const putUser = (req, res) => {
-  res.json({ message: "User item updated" });
+const putUser = async (req, res) => {
+  const modify = await modifyUser(req.body, req.params.id);
+  if (modify) {
+    res.json({ message: `User ${req.params.id} updated` });
+  } else {
+    res.sendStatus(404);
+  }
 };
 
-const deleteUser = (req, res) => {
-  res.json({ message: "User item deleted" });
+const deleteUser = async (req, res) => {
+  const del = await removeUser(req.params.id);
+  if (del) {
+    res.json({ message: `User ${req.params.id} deleted` });
+  } else {
+    res.sendStatus(404);
+  }
 };
 
 export { getUser, getUserById, postUser, putUser, deleteUser };

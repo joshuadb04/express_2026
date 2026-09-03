@@ -1,4 +1,4 @@
-import { addCat, findCatById, listAllCats, listCatsByUserId } from "../models/cat-model.js";
+import { addCat, findCatById, listAllCats, listCatsByUserId, modifyCat, removeCat } from "../models/cat-model.js";
 
 const getCat = async (req, res) => {
   const cats = await listAllCats();
@@ -35,12 +35,22 @@ const postCat = async (req, res) => {
   }
 };
 
-const putCat = (req, res) => {
-  res.json({ message: "Cat item updated" });
+const putCat = async (req, res) => {
+  const modify = await modifyCat(req.body, req.params.id);
+  if (modify) {
+    res.json({ message: `Cat ${req.params.id} updated` });
+  } else {
+    res.sendStatus(404);
+  }
 };
 
-const deleteCat = (req, res) => {
-  res.json({ message: "Cat item deleted" });
+const deleteCat = async (req, res) => {
+  const del = await removeCat(req.params.id);
+  if (del) {
+    res.json({ message: `Cat ${req.params.id} deleted` });
+  } else {
+    res.sendStatus(404);
+  }
 };
 
 export { getCat, getCatById, postCat, putCat, deleteCat, getCatsByUserId };

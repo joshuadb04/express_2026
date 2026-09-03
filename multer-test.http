@@ -4,15 +4,15 @@ Content-Type: multipart/form-data; boundary=MyBoundary
 --MyBoundary
 Content-Disposition: form-data; name="cat_name"
 
-Misu
+Kingpin
 --MyBoundary
 Content-Disposition: form-data; name="weight"
 
-6
+5
 --MyBoundary
 Content-Disposition: form-data; name="owner"
 
-37
+1
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 
