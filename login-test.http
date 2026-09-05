@@ -1,0 +1,13 @@
+### Post login
+# @name login
+POST http://localhost:3000/api/v1/auth/login
+content-type: application/json
+
+{
+  "username": "johnpork",
+  "password": "passingtheword"
+}
+
+### Get my user info
+GET http://localhost:3000/api/v1/auth/me
+Authorization: Bearer {{login.response.body.token}}

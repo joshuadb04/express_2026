@@ -14,6 +14,18 @@ const findUserById = async (id) => {
   }
   return rows[0];
 };
+
+const findUserByUsername = async (user) => {
+  const [rows] = await promisePool.query(`SELECT * FROM wsk_users WHERE username = ?`, [user]);
+
+  console.log("rows", rows);
+  console.log("user", user);
+  if (rows.length === 0) {
+    return false;
+  }
+  return rows[0];
+};
+
 const addUser = async (user) => {
   const { name, username, email, password, role } = user;
   const sql = "INSERT INTO wsk_users (name, username, email, password, role) VALUES (?, ?, ?, ?, ?)";
@@ -70,4 +82,4 @@ const removeUser = async (id) => {
   }
 };
 
-export { listAllUsers, findUserById, addUser, modifyUser, removeUser };
+export { listAllUsers, findUserById, addUser, modifyUser, removeUser, findUserByUsername };
