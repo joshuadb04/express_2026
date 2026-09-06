@@ -29,20 +29,30 @@ const postUser = async (req, res) => {
 };
 
 const putUser = async (req, res) => {
-  const modify = await modifyUser(req.body, req.params.id);
-  if (modify) {
-    res.json({ message: `User ${req.params.id} updated` });
+  if (req.params.id != res.locals.user.user_id) {
+    res.sendStatus(403);
+    return;
   } else {
-    res.sendStatus(404);
+    const modify = await modifyUser(req.body, req.params.id);
+
+    if (modify) {
+      res.json({ message: `User ${req.params.id} updated` });
+    } else {
+      res.sendStatus(404);
+    }
   }
 };
 
 const deleteUser = async (req, res) => {
-  const del = await removeUser(req.params.id);
-  if (del) {
-    res.json({ message: `User ${req.params.id} deleted` });
+  if (req.params.id != res.locals.user.user_id) {
+    res.sendStatus(403);
   } else {
-    res.sendStatus(404);
+    const del = await removeUser(req.params.id);
+    if (del) {
+      res.json({ message: `User ${req.params.id} deleted` });
+    } else {
+      res.sendStatus(404);
+    }
   }
 };
 

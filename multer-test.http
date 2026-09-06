@@ -4,19 +4,19 @@ Content-Type: multipart/form-data; boundary=MyBoundary
 --MyBoundary
 Content-Disposition: form-data; name="cat_name"
 
-Kingpin
+tobedeleted
 --MyBoundary
 Content-Disposition: form-data; name="weight"
 
-5
+4
 --MyBoundary
 Content-Disposition: form-data; name="owner"
 
-1
+45
 --MyBoundary
 Content-Disposition: form-data; name="birthdate"
 
-2023-10-08
+2022-10-09
 --MyBoundary
 Content-Disposition: form-data; name="cat"; filename="test-cat.png"
 Content-Type: image/png

@@ -38,8 +38,8 @@ const addCat = async (cat) => {
   return { cat_id: rows[0].insertId };
 };
 
-const modifyCat = async (cat, id) => {
-  const sql = promisePool.format("UPDATE wsk_cats SET ? WHERE cat_id = ?", [cat, id]);
+const modifyCat = async (cat, id, owner) => {
+  const sql = promisePool.format("UPDATE wsk_cats SET ? WHERE cat_id = ? AND owner = ?", [cat, id, owner]);
   const rows = await promisePool.execute(sql);
   console.log("rows", rows);
   if (rows[0].affectedRows === 0) {
@@ -48,8 +48,8 @@ const modifyCat = async (cat, id) => {
   return { message: "success" };
 };
 
-const removeCat = async (id) => {
-  const [rows] = await promisePool.execute("DELETE FROM wsk_cats WHERE cat_id = ?", [id]);
+const removeCat = async (id, owner) => {
+  const [rows] = await promisePool.execute("DELETE FROM wsk_cats WHERE cat_id = ? AND owner = ?", [id, owner]);
   console.log("rows", rows);
   if (rows.affectedRows === 0) {
     return false;
