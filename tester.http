@@ -19,7 +19,7 @@ GET http://127.0.0.1:3000/api/v1/cats
 GET http://127.0.0.1:3000/api/v1/cats/44
 
 ### Get cats by user ID
-GET http://127.0.0.1:3000/api/v1/cats/user/45
+GET http://127.0.0.1:3000/api/v1/cats/user/37
 
 ### Add cat //this no longer works in newer API changes
 POST http://127.0.0.1:3000/api/v1/cats
@@ -74,5 +74,5 @@ Authorization: Bearer {{login.response.body.token}}
 }
 
 ### Delete user
-DELETE  http://127.0.0.1:3000/api/v1/users/51
+DELETE  http://127.0.0.1:3000/api/v1/users/55
 Authorization: Bearer {{login.response.body.token}}
