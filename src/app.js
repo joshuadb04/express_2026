@@ -1,8 +1,10 @@
 import express from "express";
 import api from "./api/index.js";
+import cors from "cors";
 
 const app = express();
 
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello world");
 });

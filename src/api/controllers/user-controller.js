@@ -16,8 +16,8 @@ const getUserById = async (req, res) => {
 };
 
 const postUser = async (req, res) => {
+  console.log(req.body);
   req.body.password = bcrypt.hashSync(req.body.password, 10);
-
   const result = await addUser(req.body);
 
   if (result.user_id) {
@@ -29,7 +29,7 @@ const postUser = async (req, res) => {
 };
 
 const putUser = async (req, res) => {
-  if (req.params.id != res.locals.user.user_id) {
+  if (req.params.id != res.locals.user.user_id && res.locals.user.role != "admin") {
     res.sendStatus(403);
     return;
   } else {
@@ -44,7 +44,7 @@ const putUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-  if (req.params.id != res.locals.user.user_id) {
+  if (req.params.id != res.locals.user.user_id && res.locals.user.role != "admin") {
     res.sendStatus(403);
   } else {
     const del = await removeUser(req.params.id);

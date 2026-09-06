@@ -34,16 +34,16 @@ Content-Type: application/json
 }
 
 ### Update cat
-PUT http://127.0.0.1:3000/api/v1/cats/47
+PUT http://127.0.0.1:3000/api/v1/cats/53
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.token}}
 
 {
-  "weight": 1
+  "weight": 2
 }
 
 ### Delete cat
-DELETE  http://127.0.0.1:3000/api/v1/cats/50
+DELETE  http://127.0.0.1:3000/api/v1/cats/51
 Authorization: Bearer {{login.response.body.token}}
 
 ### Get all users
@@ -65,14 +65,14 @@ Content-Type: application/json
 }
 
 ### Update user
-PUT http://127.0.0.1:3000/api/v1/users/45
+PUT http://127.0.0.1:3000/api/v1/users/50
 Content-Type: application/json
 Authorization: Bearer {{login.response.body.token}}
 
 {
-  "role": "moderator"
+  "role": "testuser"
 }
 
 ### Delete user
-DELETE  http://127.0.0.1:3000/api/v1/users/43
+DELETE  http://127.0.0.1:3000/api/v1/users/51
 Authorization: Bearer {{login.response.body.token}}
